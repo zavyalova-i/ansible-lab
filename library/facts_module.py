@@ -42,9 +42,11 @@ def main():
             'my_hostname': socket.gethostname(),
             'my_os': platform.system(),
             'my_os_release': platform.release(),
-            'my_python_version': platform.python_version(),
+            'my_pytho_version': platform.python_version(),
             'my_architecture': platform.machine(),
-            'my_user': os.getenv('USER', 'unknown')
+            'my_user': os.getenv('USER', 'unknown'),
+            'my_cpu_count': os.cpu_count(),
+            'my_uptime_seconds': int(float(open('/proc/uptime').read().split()[0]))
         }
     }
 
