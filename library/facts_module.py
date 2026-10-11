@@ -13,13 +13,10 @@ module: facts_module
 short_description: Модуль фактов
 description:
     - Собирает факты о системе и возвращает их как ansible_facts.
+    - Может использоваться в плейбуках для условного выполнения задач.
 version_added: "1.0"
 author: Ирина
-'''
-
-EXAMPLES = '''
-- name: Получить факты о системе
-  facts_module:
+options: {}
 '''
 
 RETURN = '''
@@ -27,8 +24,12 @@ ansible_facts:
     description: Факты о системе
     type: dict
     returned: always
+    sample:
+        my_hostname: ubuntu-server
+        my_os: Linux
+        my_python_version: "3.14.4"
+        my_cpu_count: 2
 '''
-
 
 def main():
     module = AnsibleModule(
